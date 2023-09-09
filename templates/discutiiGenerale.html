@@ -18,8 +18,8 @@
         <div class="dg-container">
             <ul class="dg-ul">
                 {% for topic in topics %}
-                <li>{{ topic.title }}</li>
-                <li>{{ topic.post }}</li>
+                <a href="{{ url_for('topic_details', topic_id=topic.topic_id) }}" target="_blank">{{ topic.title }}</a>
+                <p>{{ topic.post }}</p>
                 {% endfor %}
             </ul>
         </div>

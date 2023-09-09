@@ -268,6 +268,19 @@ def new_topic():
 
     return render_template('new-topic.html')
 
+
+@app.route('/topic/<int:topic_id>')
+def topic_details(topic_id):
+    # Fetch the topic details from the database based on the topic_id
+    topic = Topic.query.get(topic_id)
+
+    if not topic:
+        # Handle the case where the topic doesn't exist
+        return redirect(url_for('discutiiGenerale'))
+
+    # Render the topic details template with the fetched topic
+    return render_template('topic_details.html', topic=topic)
+
 @app.route('/tutorial')
 def tutorial():
     return render_template('tutorial.html')

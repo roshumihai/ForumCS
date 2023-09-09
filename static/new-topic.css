@@ -51,3 +51,23 @@
 .new-topic-submit:hover {
     background-color: #0056b3;
 }
+
+.topic-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    margin: 30px 0 0 0;
+}
+
+.topic-details-container h1 {
+    margin: 20px 0;
+}
+
+.topic-details-container p {
+    
+    width: 80%;
+    border: 2px solid #333;
+    padding: 30px 50px;
+}
