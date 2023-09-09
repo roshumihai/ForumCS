@@ -12,6 +12,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    position: relative;
+    min-height: 100vh;
 }
 
 header {
@@ -58,6 +60,7 @@ main {
     margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 3px solid #ddd; /* Adaugare bordura */
 
 }
 .content-section h2 a{
@@ -96,14 +99,16 @@ ol li {
     margin-left: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
+    border: 2px solid #000000; /* Adaugare bordura */
 }
 
 .new-topic-button:hover {
     background-color: #d09a04a7;
+    border: 2px solid #000000; /* Adaugare bordura */
 }
 
 footer {
-    position: auto;
+    position: absolute;
     bottom: 0;
     width: 100%;
     background-color: #333;
