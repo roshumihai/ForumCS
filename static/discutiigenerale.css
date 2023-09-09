@@ -18,14 +18,14 @@
   }
   
   /* Stilizare pentru elementele <li> din lista .dg-ul */
-  .dg-ul li {
+  .dg-ul a {
     margin-bottom: 20px; /* Spatiu intre elementele de lista */
     font-size: 16px; /* Dimensiunea fontului */
     color: #333; /* Culoarea textului */
   }
   
   /* Stilizare pentru titluri <h2> in interiorul containerului */
-  .dg-container h2 {
+  .dg-container a {
     color: #212121; /* Culoarea textului titlului */
   }
   
