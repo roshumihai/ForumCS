@@ -1,0 +1,40 @@
+/* Stilizare pentru containerul .dg-container */
+.dg-container {
+    max-height: 500px; /* Setați înălțimea maximă la valoarea dorită */
+    overflow-y: auto; /* Adăugați o bară de derulare verticală atunci când conținutul depășește înălțimea */
+    background-color: #fff; /* Culoare de fundal */
+    padding: 30px; /* Spatiu intern */
+    margin-bottom: 20px; /* Spatiu intre secțiuni */
+    border-radius: 5px; /* Colturile rotunjite */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Umbra cutiei */
+    margin-top: 20px;
+}
+
+
+  /* Stilizare pentru lista .dg-ul */
+  .dg-ul {
+    list-style-type: none; /* Dezactiveaza marcatorul de lista */
+    padding: 0; /* Elimina spatiul intern al listei */
+  }
+  
+  /* Stilizare pentru elementele <li> din lista .dg-ul */
+  .dg-ul li {
+    margin-bottom: 20px; /* Spatiu intre elementele de lista */
+    font-size: 16px; /* Dimensiunea fontului */
+    color: #333; /* Culoarea textului */
+  }
+  
+  /* Stilizare pentru titluri <h2> in interiorul containerului */
+  .dg-container h2 {
+    color: #212121; /* Culoarea textului titlului */
+  }
+  
+  /* Adaugare bordura între secțiuni */
+.section {
+    background-color: #fff; /* Culoare de fundal */
+    padding: 20px; /* Spatiu intern */
+    margin-bottom: 20px; /* Spatiu intre secțiuni */
+    border-radius: 5px; /* Colturile rotunjite */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Umbra cutiei */
+    border: 3px solid #ddd; /* Adaugare bordura */
+}
