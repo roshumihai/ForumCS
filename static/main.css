@@ -1,0 +1,135 @@
+
+/* Navigation styles */
+.topnav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin-top: 1%;
+    overflow: hidden;
+    background-color: #797232;
+    z-index: 1;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #f3eae8;
+    color: #181f3b;
+    font-weight: bold;
+}
+
+.topnav a.active {
+    background-color: #f3eae8;
+    color: #181f3b;
+    font-weight: bold;
+}
+
+.image-logo {
+    position: absolute;
+    top: 0.6%;
+    left: 18%;
+    width: 200px;
+    max-height: 70px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+/* Dashboard content*/
+
+.content {
+    text-align: center;
+    margin: 5% 5% 0 0;
+}
+
+
+/* Login container */
+.login-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.login-container p {
+    color: #d09a04;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 15px 35px 0 0;
+}
+
+.login-container a {
+    padding: 15px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.login-container a:hover {
+    background-color: #d09a04;
+}
+
+/* Sign-up link */
+.sign-up {
+    margin-top: 15px;
+    text-align: center;
+    margin-right: 50px;
+}
+
+.sign-up a {
+    color: white;
+}
+
+/* Form input styles */
+.input-form {
+    margin-top: 5%;
+}
+
+.input-form .form-group {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.input-form .form-group .form-control {
+    text-align: center;
+    color: #181f3b;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: transparent;
+    width: 30%;
+    padding: 20px;
+    border: 2px solid #261965;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.input-form .submit-form {
+    color: #181f3b;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #d09a04;
+    padding: 15px;
+    width: 300px;
+    font-size: large;
+    border: 1px solid #f3eae8;
+    border-radius: 5px;
+}
+.input-form .submit-form:hover {
+    cursor: pointer;
+    background-color: #d09a04a7;
+}
+/* Error messages */
+.error {
+    text-align: center;
+    margin-right: 50px;
+    margin-top: 25px;
+    color: #fd1749;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}

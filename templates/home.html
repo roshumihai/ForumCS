@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content%}
+    <div class="topnav">
+      <a class="active" href="{{ url_for('home') }}">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Forum</a>
+      <a href="#contact">Servers</a>
+      <a href="#contact">Contact</a>
+        <div class="login-container">
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+      </div>
+
+    </div>
+    <div class="home-container">
+	<header>
+        <h1>Welcome to Fun.bimbizone.ro</h1>
+        <p>Your ultimate destination for Counter-Strike 1.6 fun with UWC3!</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Latest Forum Topics</h2>
+            <!-- Add a list of the latest forum topics here -->
+            <p class="forum-username">{{current_user.username.title() }}</p>
+            <p class="forum-paragraph">Ba fa botii aia mai slabi ca ne sparg rau</p>
+        </section>
+
+        <section>
+            <h2>CS 1.6 UWC3 Server Status</h2>
+            <!-- Add UWC3 server status information here -->
+            Connected
+        </section>
+    </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fun.bimbizone.ro</p>
+    </footer>
+{% endblock %}

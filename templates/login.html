@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Login
+{% endblock %}
+
+{% block content %}
+
+<div class="input-form">
+    <form method="POST" action="" autocomplete="off">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+        {{ form.username(class="form-control") }}
+        </div>
+        <div class="form-group">
+        {{ form.password(class="form-control") }}
+        </div>
+        <div class="form-group">
+        {{ form.submit(class="submit-form") }}
+        </div>
+    </form>
+    <div class="error">
+        {% if form.username.errors and form.password.errors %}
+            The username or password you entered is incorrect.
+            {% elif form.username.errors %}
+        {% endif %}
+    </div>
+    <div class="sign-up">
+        <a href="{{url_for('register')}}">Don't have an account? Sign up</a>
+    </div>
+</div>
+
+
+{% endblock %}

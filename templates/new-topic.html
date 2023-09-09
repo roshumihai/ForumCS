@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content%}
+
+<h1 class="new-topic-header">Create New Topic</h1>
+<div class="new-topic-container">
+    <form action="{{ url_for('new_topic') }}" method="POST" class="new-topic-form" enctype="multipart/form-data">
+        <label for="title">Title:</label>
+        <input class="new-topic-title" type="text" id="title" name="title" required><br><br>
+        
+        <label for="post">Post:</label><br>
+        <textarea class="new-topic-textarea" id="post" name="post" rows="5" cols="40" required></textarea><br><br>
+
+        <label for="photo">Upload Photo:</label>
+        <input class="new-topic-textarea" type="file" id="photo" name="photo" accept="image/*"><br><br>
+        
+        <input type="submit" value="Submit" class="new-topic-submit">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='new-topic.css') }}">
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='admin.js') }}"></script>
+
+</head>
+
+<body>
+<header>
+        <h1>Forum CS 1.6</h1>
+        <h2>Server: fun.bimbizone.ro (UWC3mod)</h2>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Acasă</a></li>
+            <li><a href="{{ url_for('regulament') }}">Regulament</a></li>
+            <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
+            <li><a href="{{ url_for('discutiiGenerale') }}">Discuții Generale</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            {% if current_user.is_authenticated %}
+            <div class="login-container">
+                <p>{{ current_user.username.title() }}</p>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
+            {% else %}
+            <div class="login-container">
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            </div>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

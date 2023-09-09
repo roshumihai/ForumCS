@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Login
+{% endblock %}
+
+{% block content %}
+
+    <main class="main-content">
+        <section class="content-section">
+            <h2>Tutorial</h2>
+            <p>Aici puteți găsi tutoriale utile pentru jocul CS 1.6 și plugin-urile noastre speciale.</p>
+          
+        </section>
+
+        <a href="{{ url_for('new_topic') }}" class="new-topic-button">New Topic</a>
+        
+        <!-- Adăugați conținut specific pentru tutorial aici -->
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 fun.bimbizone.ro (UWC3mod) - Forum CS 1.6</p>
+    </footer>
+{% endblock %}
