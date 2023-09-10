@@ -1,16 +1,35 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Home
+    Topic-details
 {% endblock %}
 
 {% block content%}
-<div class="topic-details-content">
 <div class="topic-details-container">
-    <h2>{{ topic.title }}</h2>
-    <p>{{ topic.post }}</p>
+    <a href="{{ url_for('reply_topic', topic_id=topic.topic_id) }}" class="topic-details-button">Post Reply</a>
+
+    <div class="topic-details-content">
+        <div clas="topic-details-subject">           
+            <h2>{{ topic.title.title() }}</h2>
+            <p>{{ topic.post }}</p>
+            <p class="topic-details-user">by {{ topic.user.username.title() }}</p>
+        </div>
+    </div>
+
+    <div class="topic-details-replys">
+        <ul class="topic-details-ul">
+            {% for comment in comments %}
+            <div class="topic-details-list">
+                <li>{{ comment.reply }}</li>
+                <p class="topic-details-user">by {{ comment.user.username.title() }}</p>
+                <p class="topic-details-date">Posted at: {{ comment.created_at }}</p>
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
+
 </div>
-</div>
+
 <footer class="footer">
     <p>&copy; 2023 fun.bimbizone.ro (UWC3mod) - Forum CS 1.6</p>
 </footer>

@@ -5,7 +5,7 @@ from flask_wtf.file import FileField
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField, IntegerField
 from wtforms.validators import InputRequired, Length, ValidationError, Regexp
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import func
+from sqlalchemy import func, desc
 from flask_bcrypt import Bcrypt
 from datetime import datetime, timedelta
 from werkzeug.utils import secure_filename
@@ -91,6 +91,16 @@ class Topic(db.Model):
     post = db.Column(db.Text, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
     user = db.relationship('User', backref=db.backref('topics', lazy='joined'))
+    image_ref = db.Column(db.String(100), nullable=True)
+    created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
+
+
+class Comment(db.Model):
+    comment_id = db.Column(db.Integer, primary_key=True)
+    reply = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    topic_id = db.Column(db.Integer, db.ForeignKey('topic.topic_id'), nullable=False)
+    user = db.relationship('User', backref=db.backref('replays', lazy='joined'))
     image_ref = db.Column(db.String(100), nullable=True)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
@@ -230,7 +240,7 @@ def regulament():
 
 @app.route('/discutiiGenerale', methods=['POST', 'GET'])
 def discutiiGenerale():
-    topics = Topic.query.all()
+    topics = Topic.query.order_by(desc(Topic.topic_id)).all()
 
     return render_template('discutiiGenerale.html', topics=topics)
 
@@ -272,14 +282,15 @@ def new_topic():
 @app.route('/topic/<int:topic_id>')
 def topic_details(topic_id):
     # Fetch the topic details from the database based on the topic_id
-    topic = Topic.query.get(topic_id)
+    topic = Topic.query.get_or_404(topic_id)
+    comments = Comment.query.filter_by(topic_id=topic_id).all()
 
     if not topic:
         # Handle the case where the topic doesn't exist
         return redirect(url_for('discutiiGenerale'))
 
     # Render the topic details template with the fetched topic
-    return render_template('topic_details.html', topic=topic)
+    return render_template('topic_details.html', topic=topic, comments=comments)
 
 @app.route('/tutorial')
 def tutorial():
@@ -289,6 +300,39 @@ def tutorial():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+
+@app.route('/reply-topic/<int:topic_id>', methods=['POST', 'GET'])
+@login_required
+def reply_topic(topic_id):
+    topic = Topic.query.get_or_404(topic_id)
+
+    if request.method == 'POST':
+        comment = Comment()
+
+        reply = request.form['post']
+        reply_photo = request.files['photo']
+
+        if reply:
+            comment.reply = reply
+        if reply_photo:
+            filename = secure_filename(reply_photo.filename)
+
+            # Create a unique filename with UUID and save the uploaded file
+            filename = str(uuid.uuid4()) + '_' + filename
+            reply_photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            comment.image_ref = filename
+
+        comment.user_id = current_user.user_id
+        comment.topic_id = topic_id
+
+        db.session.add(comment)
+        db.session.commit()
+
+        return redirect(url_for('topic_details', topic_id=topic.topic_id))
+
+
+    return render_template('reply-topic.html', topic=topic)
 
 
 with app.app_context():

@@ -1,47 +1,63 @@
 /* Stilizare pentru containerul .dg-container */
 .dg-container {
-    max-height: 500px; /* Setați înălțimea maximă la valoarea dorită */
-    overflow-y: auto; /* Adăugați o bară de derulare verticală atunci când conținutul depășește înălțimea */
     background-color: #fff; /* Culoare de fundal */
     padding: 30px; /* Spatiu intern */
-    margin-bottom: 20px; /* Spatiu intre secțiuni */
+    margin-bottom: 50px; /* Spatiu intre secțiuni */
     border-radius: 5px; /* Colturile rotunjite */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Umbra cutiei */
     margin-top: 20px;
     border: 3px solid #ddd; /* Adaugare bordura */
 }
 
+.new-topic-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d09a04;
+    color: #212121;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #000000; /* Adaugare bordura */
+}
 
-  /* Stilizare pentru lista .dg-ul */
-  .dg-ul {
+.new-topic-button:hover {
+    background-color: #d09a04a7;
+    border: 2px solid #333; /* Adaugare bordura */
+}
+
+/* Stilizare pentru lista .dg-ul */
+.dg-ul {
     list-style-type: none; /* Dezactiveaza marcatorul de lista */
     padding: 0; /* Elimina spatiul intern al listei */
-  }
-  
-  /* Stilizare pentru elementele <li> din lista .dg-ul */
-  .dg-ul a {
+}
+
+/* Stilizare pentru elementele <li> din lista .dg-ul */
+.dg-ul a {
     margin-bottom: 20px; /* Spatiu intre elementele de lista */
     font-size: 16px; /* Dimensiunea fontului */
     color: #333; /* Culoarea textului */
     text-decoration: none;
-  }
-  
-  /* Stilizare pentru titluri <h2> in interiorul containerului */
-  .dg-container a {
-    color: #212121; /* Culoarea textului titlului */
-  }
+}
   
   /* Adaugare bordura între secțiuni */
-.section {
+.dg-list {
     background-color: #fff; /* Culoare de fundal */
-    padding: 20px; /* Spatiu intern */
+    padding: 15px 40px; /* Spatiu intern */
     margin-bottom: 20px; /* Spatiu intre secțiuni */
     border-radius: 5px; /* Colturile rotunjite */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Umbra cutiei */
     border: 3px solid #ddd; /* Adaugare bordura */
 }
 
-.section:hover {
-  background-color: #d09a04a7;
-  border: 3px solid #000000; /* Adaugare bordura */
+
+.dg-list h3 {
+    color: #555;
+}
+
+.dg-list:hover {
+    background-color: #d09a04a7;
+    border: 3px solid #000000; /* Adaugare bordura */
 }

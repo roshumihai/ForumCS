@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content%}
+
+<h1 class="reply-topic-header">Post Reply</h1>
+<div class="reply-topic-container">
+    <form action="{{ url_for('reply_topic', topic_id=topic.topic_id) }}" method="POST" class="reply-topic-form" enctype="multipart/form-data">
+        
+        <label for="post">Reply:</label><br>
+        <textarea class="reply-topic-textarea" id="post" name="post" rows="5" cols="40" required></textarea><br><br>
+
+        <label for="photo">Upload Photo:</label>
+        <input class="reply-topic-textarea" type="file" id="photo" name="photo" accept="image/*"><br><br>
+        
+        <input type="submit" value="Submit" class="reply-topic-submit">
+    </form>
+</div>
+
+{% endblock %}

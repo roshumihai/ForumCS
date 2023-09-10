@@ -1,31 +1,31 @@
-.new-topic-header {
+.reply-topic-header {
     text-align: center;
     color: #888888;
     margin: 15px 0;
 }
 
-.new-topic-container {
+.reply-topic-container {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
-.new-topic-form {
+.reply-topic-form {
     padding: 10px;
     position: relative;
 }
 
-.new-topic-form label {
+.reply-topic-form label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.new-topic-title,
-.new-topic-textarea {
+.reply-topic-title,
+.reply-topic-textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -34,7 +34,7 @@
     font-size: 16px;
 }
 
-.new-topic-submit {
+.reply-topic-submit {
     position: absolute;
     bottom: -10px;
     right: 10px;
@@ -49,8 +49,9 @@
     border: 2px solid #000000; /* Adaugare bordura */
 }
 
-.new-topic-submit:hover {
+.reply-topic-submit:hover {
     background-color: #d09a04a7;
     border: 2px solid #000000; /* Adaugare bordura */
 }
+
 
