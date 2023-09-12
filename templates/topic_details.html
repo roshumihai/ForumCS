@@ -12,6 +12,9 @@
         <div clas="topic-details-subject">           
             <h2>{{ topic.title.title() }}</h2>
             <p>{{ topic.post }}</p>
+            {% if topic.image_ref %}
+            <img src="{{ url_for('static', filename='uploads/' + topic.image_ref) }}" alt="Topic Image" class="topic-image">
+            {% endif %}
             <p class="topic-details-user">by {{ topic.user.username.title() }}</p>
         </div>
     </div>
@@ -22,6 +25,9 @@
             <div class="topic-details-list">
                 <li>{{ comment.reply }}</li>
                 <p class="topic-details-user">by {{ comment.user.username.title() }}</p>
+                {% if comment.image_ref %}
+                <img src="{{ url_for('static', filename='uploads/' + comment.image_ref) }}" alt="Comment Image" class="topic-image">
+                {% endif %}
                 <p class="topic-details-date">Posted at: {{ comment.created_at }}</p>
             </div>
             {% endfor %}

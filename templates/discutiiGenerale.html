@@ -25,7 +25,10 @@
                     <li>
                         <div class="dg-list">
                             <h3>{{ topic.title.title() }}</h3>
-                            <p>by {{ topic.user.username }}</p>
+                            <p class="dg-list-username">by {{ topic.user.username }}</p>
+                            {% set num_comments = topic.comments.count() %}
+                            <p class="dg-list-count">{{ num_comments }} {{ 'comment' if num_comments == 1 else 'comments' }}</p>
+                            <p class="dg-datetime">Posted at {{ topic.created_at }}</p>
                         </div>
                     </li>
                 </a>

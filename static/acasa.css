@@ -9,4 +9,9 @@
 }
 .content-section h2 a{
     color: #212121;
+    text-decoration: none;
+}
+
+.content-section h2 a:hover{
+    color: #888;
 }

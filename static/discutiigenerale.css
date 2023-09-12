@@ -20,12 +20,13 @@
     margin-left: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 2px solid #000000; /* Adaugare bordura */
+    border: 2px solid #888;
 }
 
 .new-topic-button:hover {
     background-color: #d09a04a7;
-    border: 2px solid #333; /* Adaugare bordura */
+    border: 2px solid transparent;
+    transition: ease 0.3s;
 }
 
 /* Stilizare pentru lista .dg-ul */
@@ -44,20 +45,39 @@
   
   /* Adaugare bordura între secțiuni */
 .dg-list {
-    background-color: #fff; /* Culoare de fundal */
-    padding: 15px 40px; /* Spatiu intern */
-    margin-bottom: 20px; /* Spatiu intre secțiuni */
-    border-radius: 5px; /* Colturile rotunjite */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Umbra cutiei */
-    border: 3px solid #ddd; /* Adaugare bordura */
+    position: relative;
+    background-color: rgba(105, 105, 105, 0.1);
+    padding: 15px 40px; 
+    margin-bottom: 20px;
+    border-radius: 15px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border: 3px solid #ddd;
 }
 
+.dg-list-username {
+    padding-top: 7px;
+}
+
+.dg-list-count {
+    position: absolute;
+    bottom: 13px;
+    left: 33%;
+}
 
 .dg-list h3 {
     color: #555;
+    padding: 0 10px 10px 10px;
+    border-bottom: 1px solid #333;
 }
 
 .dg-list:hover {
     background-color: #d09a04a7;
-    border: 3px solid #000000; /* Adaugare bordura */
+    transition: ease 1s;
+}
+
+.dg-datetime {
+    position: absolute;
+    bottom: 13px;
+    right: 30px;
+    color: #333;
 }

@@ -6,6 +6,8 @@
     position: absolute;
     top: 10px;
     right: 10px;
+    font-weight: bold;
+    margin-right: 20px;
 }
 
 .login-container p {
@@ -22,18 +24,18 @@
 }
 
 .login-container a:hover {
-    background-color: #d09a04;
+    color: #333;
 }
 
 /* Sign-up link */
 .sign-up {
     margin-top: 15px;
     text-align: center;
-    margin-right: 50px;
 }
 
 .sign-up a {
-    color: white;
+    color: #333;
+    text-decoration: none;
 }
 
 /* Form input styles */

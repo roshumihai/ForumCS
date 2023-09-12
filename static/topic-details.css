@@ -3,8 +3,8 @@
 .topic-details-content {
     background-color: #f4f4f4;
     padding: 20px;
-    margin: 0 30px 20px 30px;
     border-radius: 5px;
+    margin: 5px 20px 20px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 3px solid #ddd;
 }
@@ -12,7 +12,7 @@
 .topic-details-subject {
     background-color: #fff;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 150px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 3px solid #ddd;
@@ -34,7 +34,7 @@
     flex-direction: column;
     border-left: 2px solid #d09a04;
     border-right: 2px solid #d09a04;
-    padding: 10px 40px;
+    padding: 10px 40px 60px;
     margin: 0 40px;
 }
 
@@ -81,4 +81,14 @@
 .topic-details-button:hover {
     background-color: #d09a04a7;
     border: 2px solid #333;
+}
+
+.topic-image {
+    margin: 25px auto;
+    display: block;
+    max-height: 300px;
+    max-width: 500px;
+    border: 2px solid #ffecff;
+    padding: 10px;
+    cursor: pointer;
 }

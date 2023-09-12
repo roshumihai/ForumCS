@@ -91,6 +91,7 @@ class Topic(db.Model):
     post = db.Column(db.Text, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
     user = db.relationship('User', backref=db.backref('topics', lazy='joined'))
+    comments = db.relationship('Comment', backref='topic', lazy='dynamic')
     image_ref = db.Column(db.String(100), nullable=True)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
@@ -233,6 +234,12 @@ def register():
     return render_template('register.html', form=form)
 
 
+@app.route('/main-profile')
+@login_required
+def main_profile():
+    return render_template('main-profile.html')
+
+
 @app.route('/regulament')
 def regulament():
     return render_template('regulament.html')
@@ -267,7 +274,7 @@ def new_topic():
             # Create a unique filename with UUID and save the uploaded file
             filename = str(uuid.uuid4()) + '_' + filename
             topic_photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            topic.image_ref = topic_photo
+            topic.image_ref= filename
 
         topic.user_id = current_user.user_id
 
@@ -283,7 +290,7 @@ def new_topic():
 def topic_details(topic_id):
     # Fetch the topic details from the database based on the topic_id
     topic = Topic.query.get_or_404(topic_id)
-    comments = Comment.query.filter_by(topic_id=topic_id).all()
+    comments = Comment.query.filter_by(topic_id=topic_id).order_by(Comment.comment_id.desc()).all()
 
     if not topic:
         # Handle the case where the topic doesn't exist
